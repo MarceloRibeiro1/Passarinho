@@ -1,6 +1,6 @@
 import { TweetPostInfo } from "../../../../../models";
 import { TweetInteractButtons } from "../TweetInteractButtons";
-import * as dayjs from 'dayjs'
+import dayjs from 'dayjs';
 interface TweetProps extends React.BaseHTMLAttributes<HTMLDivElement>{
   postInfo: TweetPostInfo
 }
