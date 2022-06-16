@@ -29,7 +29,7 @@ function LoginPage() {
             loginText="Inscreva-se pelo email"
             loginDirectFunction={() => {
               handleLoginMedium("CREATE_NEW_ACCOUNT")
-              console.log(process.env.VITE_API_URL)
+              console.log(import.meta.env.VITE_API_URL)
             }}
           />
 
