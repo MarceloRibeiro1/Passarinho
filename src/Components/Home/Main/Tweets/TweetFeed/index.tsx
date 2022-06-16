@@ -60,6 +60,7 @@ export function TweetFeed() {
     getTweet()
 
   },[tweetListUpdate])
+  const numbers = [1, 2, 3, 4, 5];
   return (
     <div className="flex flex-col items-center w-full">
       {
@@ -68,10 +69,13 @@ export function TweetFeed() {
         : <></>
       }
       <div className="flex-grow w-full">
-      {
+      {/*
         tweetList.map((tweet) => 
           <Tweet key={tweet.id} className="hover:bg-slate-100" postInfo={tweet} />
-        )
+        )*/
+        <ul>
+        { numbers.map( (number, i) => <li key={i} className="hover:bg-slate-100">{ number }</li>) }
+      </ul>
       }
       <button onClick={() => console.log(tweetList)} className="teste p-2 bg-blue-600"> oi botão aqui</button>
       </div>
