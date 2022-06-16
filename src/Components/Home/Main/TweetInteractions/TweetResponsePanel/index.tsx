@@ -7,6 +7,7 @@ import { Tweet } from "../../Tweets/Tweet/Tweet";
 import { useDispatch, useSelector } from "react-redux";
 import { back, newComment, select, selecttweet } from "../../../../../reducers/tweet";
 import { selectUser } from "../../../../../reducers/user";
+import socket from "../../../../../lib/socketio";
 
 
 
@@ -30,6 +31,7 @@ export function TweetResponsePanel() {
 		})
 		setTweetTextContent("")
 		dispatch(newComment())
+		socket.emit("new_post")
 	  }
 	  catch (e){
 		console.error(e)
@@ -59,7 +61,7 @@ export function TweetResponsePanel() {
 					params: { postId: tweet.id , indexNumber: tweetList.length},
 				});
 
-				setTweetList([...tweetList, ...response.data.responseRecentPostsList]);
+				setTweetList(response.data.responseRecentPostsList);
 			} catch (e) {
 				console.error(e);
 			}
@@ -85,7 +87,7 @@ export function TweetResponsePanel() {
 						<Tweet postInfo={tweet} />
 					</div>
 
-					<div className="overflow-y-scroll max-h-96 my-4">
+					<div className="overflow-y-auto max-h-96 my-4">
 						{tweetList.map((tweet, i) => (
 							<div key={i} className="border-slate-200 py-1">
 								<Tweet postInfo={tweet} />

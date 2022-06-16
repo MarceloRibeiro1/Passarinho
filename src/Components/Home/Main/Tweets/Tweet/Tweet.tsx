@@ -21,7 +21,7 @@ export function Tweet({postInfo}: TweetProps){
 
   }
 
-  const numero = getTimeDifference()
+  const time = getTimeDifference()
 
   return(
     <article className="border border-x-0 border-t-0 border-slate-200 pb-2">
@@ -38,7 +38,7 @@ export function Tweet({postInfo}: TweetProps){
           <div className="flex gap-2">
             <button className="font-sans font-bold hover:underline">{postInfo.name}</button>
             <span className="font-sans font-light">@{postInfo.username}</span>
-            <span className="font-sans font-light hover:underline">{numero}</span>
+            <span className="font-sans font-light hover:underline">{time}</span>
           </div>
 
           <div  className="font-sans font-light">{postInfo.responseTo ? "resposta" : ""}</div>

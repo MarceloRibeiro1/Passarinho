@@ -38,7 +38,7 @@ export function MainHeader(){
                 <button 
                 className="flex items-center w-11/12 h-12 rounded-full bg-cyan-300 hover:bg-cyan-400 p-2 justify-center cursor-not-allowed"
                 >
-                  <span className="font-sans text-xl font-bold px-2 text-white">
+                  <span className="font-sans text-base xl:text-xl font-bold px-2 text-white">
                     Tweet
                   </span>
                 </button>
