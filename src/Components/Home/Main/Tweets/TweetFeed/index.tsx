@@ -73,8 +73,8 @@ export function TweetFeed() {
           <Tweet postInfo={tweet} />
         </div>
         )*/
-        tweetList[0].content
       }
+      <button onClick={() => console.log(tweetList)}></button>
       </div>
     </div>
   );
