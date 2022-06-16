@@ -27,7 +27,10 @@ function LoginPage() {
         <div className="flex flex-col items-center w-fit py-4">
           <LoginButton
             loginText="Inscreva-se pelo email"
-            loginDirectFunction={() => handleLoginMedium("CREATE_NEW_ACCOUNT")}
+            loginDirectFunction={() => {
+              handleLoginMedium("CREATE_NEW_ACCOUNT")
+              console.log(process.env.VITE_API_URL)
+            }}
           />
 
           <span className="py-4">Já tem uma conta?</span>
