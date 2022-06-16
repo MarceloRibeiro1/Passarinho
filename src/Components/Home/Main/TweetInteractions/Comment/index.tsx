@@ -26,7 +26,7 @@ export function Comment({PrimaryTweet}: CommentProps) {
             id: PrimaryTweet.id
           }
         })
-        setCommentNumber(response.data)
+        setCommentNumber(response.data._count.comment)
       }
       catch (e){
         console.error(e)
