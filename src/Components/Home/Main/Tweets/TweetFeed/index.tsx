@@ -68,11 +68,12 @@ export function TweetFeed() {
         : <></>
       }
       <div className="flex-grow w-full">
-      {
+      {/*
         tweetList.map((tweet, i) => <div key={i} className="hover:bg-slate-100">
           <Tweet postInfo={tweet} />
         </div>
-        )
+        )*/
+        tweetList[0].content
       }
       </div>
     </div>
