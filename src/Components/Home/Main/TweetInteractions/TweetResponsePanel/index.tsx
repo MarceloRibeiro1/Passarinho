@@ -32,6 +32,7 @@ export function TweetResponsePanel() {
 		setTweetTextContent("")
 		dispatch(newComment())
 		socket.emit("new_post")
+
 	  }
 	  catch (e){
 		console.error(e)
@@ -41,7 +42,6 @@ export function TweetResponsePanel() {
 	async function getTweetResponse(){
 		const getTweet = async () => {
 			try {
-                console.log(tweet)
 				const response = await api.get("/tweetdialog", {
 					params: { postId: tweet.responseTo },
 				});
