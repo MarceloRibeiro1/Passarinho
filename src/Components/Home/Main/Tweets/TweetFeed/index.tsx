@@ -74,7 +74,7 @@ export function TweetFeed() {
         </div>
         )*/
       }
-      <button onClick={() => console.log(tweetList)}></button>
+      <button onClick={() => console.log(tweetList)} className="teste p-2 bg-blue-600"> oi botão aqui</button>
       </div>
     </div>
   );
