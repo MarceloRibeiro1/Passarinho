@@ -48,8 +48,8 @@ export function MainHeader(){
 
 
         <button className="flex p-4 rounded-full hover:bg-slate-200 w-20 h-20 xl:w-full items-end overflow-hidden" onClick={userLogout}>
-            <div>
-                <img src={user.userPhoto} className="text-cyan-200 w-12 h-12 rouded-full"/>
+            <div className="rouded-full">
+                <img src={user.userPhoto} className="w-12 h-12 border-transparent rounded-full"/>
             </div>
             <div className="grow px-2">
                 <div>

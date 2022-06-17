@@ -28,8 +28,8 @@ export function TweetCreateFeed() {
 
   return (
     <div className="flex px-4 border border-slate-200 border-t-0 border-l-0 border-r-0">
-        <div className="flex-grow-0 flex-1 p-2">
-          <img src={user.userPhoto} className="text-cyan-200 w-10 h-10"/>
+        <div className="flex-grow-0 p-2 py-4 flex-shrink-0 rounded-full flex justify-center">
+          <img src={user.userPhoto} className="w-14 h-14 rounded-full"/>
         </div>
 
         <form className="flex-1 px-2">
@@ -37,14 +37,14 @@ export function TweetCreateFeed() {
             <input value={tweetTextContent} className="w-full h-20 focus:outline-none" placeholder="Insira seu passarinho aqui" onChange={(event) => setTweetTextContent(event.target.value)}/>
           </div>
 
-          <div className="flex justify-between p-1">
+          <div className="flex justify-between p-1 gap-3">
             <div className="flex items-center">
-              <Image className="text-cyan-200" weight="fill"/>
-              <Gif className="text-cyan-200 border-2 rounded-sm border-cyan-200" weight="fill"/>
-              <ChartBarHorizontal className="text-cyan-200" weight="fill"/>
-              <Smiley className="text-cyan-200" weight="fill"/>
-              <CalendarBlank className="text-cyan-200" weight="fill"/>
-              <MapPin className="text-cyan-200" weight="fill"/>
+              <button className="hover:bg-cyan-50 rounded-full p-2 cursor-not-allowed"><Image className=" text-cyan-300 w-5 h-5" weight="bold"/></button>
+              <button className="hover:bg-cyan-50 rounded-full p-2 cursor-not-allowed"><Gif className=" text-cyan-300 w-5 h-5 border-2 rounded-sm border-cyan-200" weight="bold"/></button>
+              <button className="hover:bg-cyan-50 rounded-full p-2 cursor-not-allowed"><ChartBarHorizontal className=" text-cyan-300 w-5 h-5" weight="bold"/></button>
+              <button className="hover:bg-cyan-50 rounded-full p-2 cursor-not-allowed"><Smiley className=" text-cyan-300 w-5 h-5" weight="bold"/></button>
+              <button className="hover:bg-cyan-50 rounded-full p-2 cursor-not-allowed"><CalendarBlank className=" text-cyan-300 w-5 h-5" weight="bold"/></button>
+              <button className="hover:bg-cyan-50 rounded-full p-2 cursor-not-allowed"><MapPin className=" text-cyan-300 w-5 h-5" weight="bold"/></button>
             </div>
 
             <div>
