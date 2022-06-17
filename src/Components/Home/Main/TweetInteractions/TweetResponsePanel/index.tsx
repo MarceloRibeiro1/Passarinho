@@ -62,7 +62,7 @@ export function TweetResponsePanel() {
 		const getTweet = async () => {
 			try {
 				const response = await api.get("/tweetdialog", {
-					params: { postId: tweet.id , indexNumber: tweetList.length},
+					params: { postId: tweet.id },
 				});
 
 				setTweetList(response.data.responseRecentPostsList);
@@ -72,7 +72,8 @@ export function TweetResponsePanel() {
 		};
 		if (tweet.isOpen == true)
 			getTweet();
-	},[tweet]);
+		socket.on("new_tweet",() => getTweet())
+	},[socket]);
 
 	return (
 		<Dialog
