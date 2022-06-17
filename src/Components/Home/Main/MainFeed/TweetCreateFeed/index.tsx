@@ -31,15 +31,15 @@ export function TweetCreateFeed() {
   }
 
   return (
-    <div className="flex px-4 border border-slate-200 border-t-0 border-l-0 border-r-0">
+    <article className="flex px-4 border border-slate-200 border-t-0 border-l-0 border-r-0">
         <div className="flex-grow-0 p-2 py-4 flex-shrink-0 rounded-full flex justify-center">
           <img src={user.userPhoto} className="w-14 h-14 rounded-full"/>
         </div>
 
-        <form className="flex-1 px-2">
-          <div>
-            <input value={tweetTextContent} className="w-full h-20 focus:outline-none" placeholder="Insira seu passarinho aqui" onChange={(event) => setTweetTextContent(event.target.value)}/>
-          </div>
+        <form className="flex-1 px-2" onSubmit={sendTweet}>
+
+          <input value={tweetTextContent} className="w-full h-20 focus:outline-none" placeholder="Insira seu passarinho aqui" onChange={(event) => setTweetTextContent(event.target.value)}/>
+
 
           <div className="flex justify-between p-1 gap-3">
             <div className="flex items-center">
@@ -54,13 +54,12 @@ export function TweetCreateFeed() {
             <div>
               <button 
               className="flex items-center justify-center px-4 py-1 rounded-full border bg-cyan-100"
-              onClick={(event)=>sendTweet(event)}
               >
                 <span className="font-sans">Tweet</span>
               </button>
             </div>
         </div>
       </form>
-    </div>
+    </article>
   );
 }

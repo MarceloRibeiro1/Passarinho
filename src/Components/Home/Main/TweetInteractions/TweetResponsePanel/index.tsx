@@ -35,8 +35,7 @@ export function TweetResponsePanel() {
 		})
 		setTweetTextContent("")
 		dispatch(newComment())
-		socket.emit("new_post")
-
+		socket.emit("new_comment",{responseId: tweet.id})
 	  }
 	  catch (e){
 		console.error(e)
@@ -58,21 +57,24 @@ export function TweetResponsePanel() {
 		getTweet();
 	}
 
-	useEffect(() => {
-		const getTweet = async () => {
-			try {
-				const response = await api.get("/tweetdialog", {
-					params: { postId: tweet.id },
-				});
+	const getTweet = async () => {
+		try {
+			const response = await api.get("/tweetdialog", {
+				params: { postId: tweet.id },
+			});
+			
+			setTweetList(response.data.responseRecentPostsList);
+		} catch (e) {
+			console.error(e);
+		}
+	};
 
-				setTweetList(response.data.responseRecentPostsList);
-			} catch (e) {
-				console.error(e);
-			}
-		};
+	useEffect(() => {
 		if (tweet.isOpen == true)
-			getTweet();
-		socket.on("new_tweet",() => getTweet())
+			getTweet()
+	},[tweet]);
+	useEffect(() => {
+		socket.on(`new_comment_${tweet.id}`, () => getTweet())
 	},[socket]);
 
 	return (
@@ -81,18 +83,19 @@ export function TweetResponsePanel() {
 			onClose={() => dispatch(back())}
 			className="fixed inset-0 flex items-center justify-center bg-opacity-70 bg-slate-200"
 		>
-			<Dialog.Panel className="relative flex flex-col content-center justify-center bg-white rounded-lg p-5 max-h-[80vh] max-w-xl">
+			<Dialog.Panel className="relative flex flex-col content-center justify-between bg-white rounded-lg p-5 max-h-[85vh] max-w-xl">
 				<Dialog.Title className="relative top-0 flex flex-row justify-between items-center">
 					{tweet.responseTo ? <button onClick={getTweetResponse}><ArrowUpLeft className="w-8 h-8"/>Resposta</button> : <div/>}
 					<span className="text-lg font-sans font-bold">Tweet</span>
 					<button onClick={() => dispatch(back())}><X className="w-8 h-8"/></button>
 				</Dialog.Title>
-				<article className="pb-2 flex flex-col max-h-[80%]">
-					<div className="flex mx-4 relative top-6 bg-white">
+				
+				<article className="pb-2 flex flex-col h-fit flex-shrink">
+					<div className="flex mx-4 relative top-6 bg-white flex-shrink-0">
 						<Tweet postInfo={tweet} />
 					</div>
 
-					<div className="overflow-y-auto max-h-96 my-4">
+					<div className="overflow-y-auto max-h-96 my-2 py-1 flex-shrink flex-grow-0 p-0">
 						{tweetList.map((tweet, i) => (
 							<div key={i} className="border-slate-200 py-1">
 								<Tweet postInfo={tweet} />
@@ -100,7 +103,7 @@ export function TweetResponsePanel() {
 						))}
 					</div>
 
-					<form className=" border-slate-200 p-1 flex flex-row items-center gap-2 py-2 bottom-0 sticky">
+					<form className=" border-slate-200 p-1 flex flex-row items-center gap-2 py-2 bottom-0 sticky flex-shrink-0">
 						<input
 							type="Resposta"
 							className="rounded-full bg-slate-200 p-2 flex-grow"
