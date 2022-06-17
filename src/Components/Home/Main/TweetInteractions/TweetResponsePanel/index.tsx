@@ -27,7 +27,11 @@ export function TweetResponsePanel() {
 		  content: tweetTextContent,
 		  image: undefined,
 		  responseTo: tweet.id,
-		  user: user
+		  user: {
+			userId: user.userId,
+			username: user.username,
+			auth_token: user.auth_token,
+		  }
 		})
 		setTweetTextContent("")
 		dispatch(newComment())

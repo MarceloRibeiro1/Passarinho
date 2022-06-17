@@ -16,7 +16,11 @@ export function TweetCreateFeed() {
       api.post('/tweet',{
         content: tweetTextContent,
         image: undefined,
-        user: user
+        user: {
+          userId: user.userId,
+          username: user.username,
+          auth_token: user.auth_token,
+        }
       })
       setTweetTextContent("")
       socket.emit("new_post")
