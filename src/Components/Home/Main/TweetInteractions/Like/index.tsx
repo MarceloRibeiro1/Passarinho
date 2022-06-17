@@ -52,7 +52,13 @@ export function Like({postId}: LikeProps) {
   }
   async function doLike(){
     try {
-      api.post("/like", {user, postId})
+      api.post("/like", {        
+        user: {
+          userId: user.userId,
+          username: user.username,
+          auth_token: user.auth_token,
+        },
+        postId})
       setIsLiked(true)
       setHearthWeight("fill")
       setHearthColor("text-red-600")
@@ -63,7 +69,13 @@ export function Like({postId}: LikeProps) {
   }
   async function doDislike(){
     try {
-      api.post("/dislike", {user, postId} )
+      api.post("/dislike", {        
+        user: {
+          userId: user.userId,
+          username: user.username,
+          auth_token: user.auth_token,
+        },
+        postId})
       setIsLiked(false)
       setHearthWeight("regular")
       setHearthColor("")
