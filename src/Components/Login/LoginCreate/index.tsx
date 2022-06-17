@@ -57,6 +57,7 @@ export function LoginCreate({testCloseDialog}: LoginCreateProps){
             accountId: response.data.userAccountId,
             auth_token: response.data.cookie,
             loggedIn: true,
+            userPhoto: response.data.userPhoto,
           }))
           navigate('/home')
         })

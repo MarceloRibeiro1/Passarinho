@@ -27,6 +27,7 @@ export interface UserModel {
 	accountId?: string;
 	auth_token?: TokenData;
 	loggedIn: boolean;
+	userPhoto: string;
 }
 
 export interface TokenData {

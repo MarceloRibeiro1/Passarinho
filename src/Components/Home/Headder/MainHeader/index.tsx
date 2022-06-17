@@ -49,7 +49,7 @@ export function MainHeader(){
 
         <button className="flex p-4 rounded-full hover:bg-slate-200 w-20 h-20 xl:w-full items-end overflow-hidden" onClick={userLogout}>
             <div>
-                <TwitterLogo className="text-cyan-200 w-12 h-12" weight="fill"/>
+                <img src={user.userPhoto} className="text-cyan-200 w-12 h-12 rouded-full"/>
             </div>
             <div className="grow px-2">
                 <div>

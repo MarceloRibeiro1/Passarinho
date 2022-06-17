@@ -1,4 +1,4 @@
-import { TwitterLogo } from "phosphor-react";
+import { CalendarBlank, ChartBarHorizontal, Gif, Image, MapPin, Smiley, TwitterLogo } from "phosphor-react";
 import { FormEvent, useState } from "react";
 import { useSelector } from "react-redux";
 import { api } from "../../../../../lib/api";
@@ -29,7 +29,7 @@ export function TweetCreateFeed() {
   return (
     <div className="flex px-4 border border-slate-200 border-t-0 border-l-0 border-r-0">
         <div className="flex-grow-0 flex-1 p-2">
-          <TwitterLogo className="text-cyan-200 w-10 h-10" weight="fill"/>
+          <img src={user.userPhoto} className="text-cyan-200 w-10 h-10"/>
         </div>
 
         <form className="flex-1 px-2">
@@ -39,12 +39,12 @@ export function TweetCreateFeed() {
 
           <div className="flex justify-between p-1">
             <div className="flex items-center">
-              <TwitterLogo className="text-cyan-200" weight="fill"/>
-              <TwitterLogo className="text-cyan-200" weight="fill"/>
-              <TwitterLogo className="text-cyan-200" weight="fill"/>
-              <TwitterLogo className="text-cyan-200" weight="fill"/>
-              <TwitterLogo className="text-cyan-200" weight="fill"/>
-              <TwitterLogo className="text-cyan-200" weight="fill"/>
+              <Image className="text-cyan-200" weight="fill"/>
+              <Gif className="text-cyan-200 border-2 rounded-sm border-cyan-200" weight="fill"/>
+              <ChartBarHorizontal className="text-cyan-200" weight="fill"/>
+              <Smiley className="text-cyan-200" weight="fill"/>
+              <CalendarBlank className="text-cyan-200" weight="fill"/>
+              <MapPin className="text-cyan-200" weight="fill"/>
             </div>
 
             <div>
