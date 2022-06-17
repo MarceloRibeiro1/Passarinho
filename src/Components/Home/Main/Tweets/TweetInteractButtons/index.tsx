@@ -10,7 +10,7 @@ interface TweetInteractButtonsProps{
 export function TweetInteractButtons({postInfo}: TweetInteractButtonsProps) {
 
   return (
-    <div className="flex justify-between pt-1 pr-32 gap-4 min-w-[400px]">
+    <div className="flex justify-between pt-1 pr-32 gap-4 w-[400px]">
       <Comment PrimaryTweet={postInfo}/> 
       <Repost />
       <Like postId={postInfo.id}/>
